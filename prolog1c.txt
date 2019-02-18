@@ -31,7 +31,8 @@ For eg: (sublis '((x . 100) (z . zprime))
 1f. Binding variables in prolog are used to give a value to a variable. It mostly occurs while making rules in prolog or to satisfy 
 the goals of a query in prolog. 
 ---------------------------------------------------------------------------------------------------------------------------------------
-1g. (= ?x ?x) checks for equality. It checks if the first variable is equal to the other variable. The equality that is checked for is numeric equality. 
+1g. (= ?x ?x) checks for equality. It checks if the first variable is equal to the other variable. The equality that is checked for 
+is numeric equality. 
 ---------------------------------------------------------------------------------------------------------------------------------------
 1h. gensym creates and returns a fresh, uninterned symbol, as if by calling make-symbol. But the only difference between gensym and 
 make-symbol is in how the new symbol’s name is determined. The symbol is prefixed by G and a decimal representation of a number.
