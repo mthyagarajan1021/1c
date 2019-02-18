@@ -98,6 +98,12 @@
     (t    (prove1      (car  expr) (cdr expr) binds))))
 
 ;--------- --------- --------- --------- --------- --------- ---------
+(defun has-vars (elements))
+
+(defun known(x binds))
+
+(defun show(x))
+;--------- --------- --------- --------- --------- --------- ---------
 (defun ands (goals binds)
   (if (null goals)
       (list binds)
