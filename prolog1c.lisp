@@ -36,7 +36,11 @@
   (<- (sibling ?x ?y) 
       (and (parent ?z ?x)
            (parent ?z ?y)
+<<<<<<< HEAD
            (not(= ?x ?y)) ;check that same person is not being compared
+=======
+           and (not(<- (= ?x ?y))) ;check that same person is not being compared
+>>>>>>> 218c345b65429dd880dfd7ba81267ce969bd1e9b
        )
     ))
 
@@ -107,6 +111,7 @@
 
 ;--------- --------- --------- --------- --------- --------- ---------
 ;code for 2B
+<<<<<<< HEAD
 (defun has-vars(lst)
       (let ((out))
         (labels (
@@ -118,6 +123,20 @@
                      (collect-r y fn)))))
            (collect-r lst #'var?)
            (remove-duplicates out))))
+=======
+(defun has-vars (lst) 
+  (when lst                            ; while list is not null
+         (if (CHAR-EQUAL (car lst) ?) ;if first char is &
+              print(car (cdr lst))) ;print first character of rest of list?
+                                   ; so if it finds ?A, print A
+      ;(eql (char (symbol-name x) ?) #\?) ;from var? method
+   
+    ) ;closes 'when'                                     
+             
+    (has-vars (cdr lst))    ; recursive call
+  
+  )
+>>>>>>> 218c345b65429dd880dfd7ba81267ce969bd1e9b
 
 ;--------- --------- --------- --------- --------- --------- ---------
 ;code for 2A
@@ -128,7 +147,11 @@
 ;code for 3A since 'show' didnt exist?
 ;Added 'show' to prove function, LINE 92. Is that how it works?
 (defun show(x)
+<<<<<<< HEAD
   (print x)
+=======
+  
+>>>>>>> 218c345b65429dd880dfd7ba81267ce969bd1e9b
   )
 ;--------- --------- --------- --------- --------- --------- ---------
 (defun ands (goals binds)
