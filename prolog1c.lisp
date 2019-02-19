@@ -35,7 +35,10 @@
         (male ?x)))
   (<- (sibling ?x ?y) 
       (and (parent ?z ?x)
-           (parent ?z ?y))))
+           (parent ?z ?y)
+           and (not(<- (= ?x ?y))) ;check that same person is not being compared
+       )
+    ))
 
 
 ;--------- --------- --------- --------- --------- --------- ---------
@@ -95,14 +98,39 @@
     (or   (ors         (cdr  expr)            binds))
     (not  (negation    (cadr expr)            binds))
     (do   (evals       (cadr expr)            binds))
+    (show   (prove1       (car  expr) (cdr expr) binds))
+    (>   (>       (car  expr) (cdr expr) binds))
+    (<   (<       (car  expr) (cdr expr) binds))
+    (>=                                        )
+    (<=                                        )
     (t    (prove1      (car  expr) (cdr expr) binds))))
 
 ;--------- --------- --------- --------- --------- --------- ---------
-(defun has-vars (elements))
+;code for 2B
+(defun has-vars (lst) 
+  (when lst                            ; while list is not null
+         (if (CHAR-EQUAL (car lst) ?) ;if first char is &
+              print(car (cdr lst))) ;print first character of rest of list?
+                                   ; so if it finds ?A, print A
+      ;(eql (char (symbol-name x) ?) #\?) ;from var? method
+   
+    ) ;closes 'when'                                     
+             
+    (has-vars (cdr lst))    ; recursive call
+  
+  )
 
-(defun known(x binds))
-
-(defun show(x))
+;--------- --------- --------- --------- --------- --------- ---------
+;code for 2A
+(defun known(x binds)
+  
+  )
+;--------- --------- --------- --------- --------- --------- ---------
+;code for 3A since 'show' didnt exist?
+;Added 'show' to prove function, LINE 92. Is that how it works?
+(defun show(x)
+  
+  )
 ;--------- --------- --------- --------- --------- --------- ---------
 (defun ands (goals binds)
   (if (null goals)
