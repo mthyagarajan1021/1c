@@ -94,20 +94,20 @@
 
 (defun prove (expr &optional binds)
   (case (car expr)
-    (and  (ands         (reverse (cdr expr))   binds))
-    (or   (ors          (cdr  expr)            binds))
-    (not  (negation     (cadr expr)            binds))
-    (do   (evals        (cadr expr)            binds))
-    (show (prove1       (car  expr) (cdr expr) binds))
-    (>    (prove1       (car  expr) (cdr expr) binds))
-    (<    (prove1       (car  expr) (cdr expr) binds))
-    (>=   (prove1       (car  expr) (cdr expr) binds))                                   )
-    (<=   (prove1       (car  expr) (cdr expr) binds))                                   )
-    (t    (prove1       (car  expr) (cdr expr) binds))))
+    (and  (ands        (reverse (cdr expr))   binds))
+    (or   (ors         (cdr  expr)            binds))
+    (not  (negation    (cadr expr)            binds))
+    (do   (evals       (cadr expr)            binds))
+    (show   (prove1       (car  expr) (cdr expr) binds))
+    (>   (>       (car  expr) (cdr expr) binds))
+    (<   (<       (car  expr) (cdr expr) binds))
+    (>=                                        )
+    (<=                                        )
+    (t    (prove1      (car  expr) (cdr expr) binds))))
 
 ;--------- --------- --------- --------- --------- --------- ---------
 ;code for 2B
-(defun HAS-VARS(lst)
+(defun has-vars(lst)
       (let ((out))
         (labels (
            (collect-r(lst fn)
@@ -121,13 +121,10 @@
 
 ;--------- --------- --------- --------- --------- --------- ---------
 ;code for 2A
-(defun known(a lst)
-  
-  while((equal (a) (car lst))
-    (setf a (cdr lst))
-  )
-   ;How to return?
-  )
+(defun known (a lst)
+   (if lst
+       (push a (known a (cdr lst)))
+       nil))
 ;--------- --------- --------- --------- --------- --------- ---------
 ;code for 3A since 'show' didnt exist?
 ;Added 'show' to prove function, LINE 92. Is that how it works?
