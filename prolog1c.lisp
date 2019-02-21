@@ -94,16 +94,16 @@
 
 (defun prove (expr &optional binds)
   (case (car expr)
-    (and  (ands        (reverse (cdr expr))   binds))
-    (or   (ors         (cdr  expr)            binds))
-    (not  (negation    (cadr expr)            binds))
-    (do   (evals       (cadr expr)            binds))
-    (show   (prove1       (car  expr) (cdr expr) binds))
-    (>   (>       (car  expr) (cdr expr) binds))
-    (<   (<       (car  expr) (cdr expr) binds))
-    (>=                                        )
-    (<=                                        )
-    (t    (prove1      (car  expr) (cdr expr) binds))))
+    (and  (ands         (reverse (cdr expr))   binds))
+    (or   (ors          (cdr  expr)            binds))
+    (not  (negation     (cadr expr)            binds))
+    (do   (evals        (cadr expr)            binds))
+    (show (prove1       (car  expr) (cdr expr) binds))
+    (>    (prove1       (car  expr) (cdr expr) binds))
+    (<    (prove1       (car  expr) (cdr expr) binds))
+    (>=   (prove1       (car  expr) (cdr expr) binds))                                   )
+    (<=   (prove1       (car  expr) (cdr expr) binds))                                   )
+    (t    (prove1       (car  expr) (cdr expr) binds))))
 
 ;--------- --------- --------- --------- --------- --------- ---------
 ;code for 2B
@@ -121,8 +121,12 @@
 
 ;--------- --------- --------- --------- --------- --------- ---------
 ;code for 2A
-(defun known(x binds)
+(defun known(a lst)
   
+  while((equal (a) (car lst))
+    (setf a (cdr lst))
+  )
+   ;How to return?
   )
 ;--------- --------- --------- --------- --------- --------- ---------
 ;code for 3A since 'show' didnt exist?
