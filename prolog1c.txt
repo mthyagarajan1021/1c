@@ -37,7 +37,8 @@ is numeric equality.
 1h. gensym creates and returns a fresh, uninterned symbol, as if by calling make-symbol. But the only difference between gensym and 
 make-symbol is in how the new symbol’s name is determined. The symbol is prefixed by G and a decimal representation of a number.
 ---------------------------------------------------------------------------------------------------------------------------------------
-1i. 
+1i. The renaming is required because the variables might be holding the same values used before and that will make the code go 
+wrong. 
 ---------------------------------------------------------------------------------------------------------------------------------------
 1j.
 ---------------------------------------------------------------------------------------------------------------------------------------
