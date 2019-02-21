@@ -121,10 +121,12 @@
 
 ;--------- --------- --------- --------- --------- --------- ---------
 ;code for 2A
+; (known '?a '((?b . 3) (?a. ?b) ))
 (defun known (a lst)
-   (if lst
-       (push a (known a (cdr lst)))
-       nil))
+   (let ((tmp (assoc a lst)))
+        (if tmp
+            (known (cdr tmp) lst)
+            a)))
 ;--------- --------- --------- --------- --------- --------- ---------
 ;code for 3A since 'show' didnt exist?
 ;Added 'show' to prove function, LINE 92. Is that how it works?
